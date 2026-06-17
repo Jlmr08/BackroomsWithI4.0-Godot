@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dshhl2lxlp27s" path="res://Scripts/I4.0/Conn.cs" id="2_shmu5"]
 [ext_resource type="Script" uid="uid://55ebtdire5kx" path="res://Scripts/Character/Phone.gd" id="3_vxq8l"]
 [ext_resource type="Theme" uid="uid://b3i1mafsd72c0" path="res://Themes/Phone.tres" id="4_shmu5"]
+[ext_resource type="Texture2D" uid="uid://dige0hmhnbcf6" path="res://Themes/Icons/send.webp" id="6_gg3t4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yg3f5"]
 radius = 0.45
@@ -295,9 +296,12 @@ size_flags_horizontal = 3
 placeholder_text = "PLACEHOLDER_PROMPT"
 scroll_fit_content_height = true
 
-[node name="SendBTN" type="Button" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea" unique_id=2061781085]
+[node name="SendBTN" type="TextureButton" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea" unique_id=1640001252]
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
-text = "BTN_SEND"
+texture_normal = ExtResource("6_gg3t4")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Files" type="ScrollContainer" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer" unique_id=1118416399]
 layout_mode = 2
