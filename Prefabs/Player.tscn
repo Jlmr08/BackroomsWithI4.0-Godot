@@ -166,7 +166,8 @@ theme = ExtResource("4_shmu5")
 metadata/_edit_use_anchors_ = true
 
 [node name="BG" type="Panel" parent="GUI/Phone" unique_id=783225992]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -182,8 +183,7 @@ anchor_bottom = 0.89285713
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="GUI/Phone/Screen" unique_id=111503706]
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -191,8 +191,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Desktop" type="Control" parent="GUI/Phone/Screen" unique_id=2094572431]
-layout_mode = 1
-anchors_preset = 15
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -229,8 +228,7 @@ text = "APP_NOTIF"
 
 [node name="I4_0 App" type="Control" parent="GUI/Phone/Screen" unique_id=1046761840]
 visible = false
-layout_mode = 1
-anchors_preset = 15
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -259,6 +257,8 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Message area" unique_id=363176116]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Prompt area" type="PanelContainer" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer" unique_id=1480441698]
 layout_mode = 2
@@ -270,43 +270,48 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Prompt" type="TextEdit" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea" unique_id=1688394500]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Write your prompt here"
-scroll_fit_content_height = true
-
-[node name="SendBTN" type="Button" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea" unique_id=2061781085]
-layout_mode = 2
-text = "Send"
-
-[node name="FilesArea" type="HBoxContainer" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer" unique_id=955748961]
-layout_mode = 2
-
-[node name="AttachFile" type="MenuButton" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/FilesArea" unique_id=519872298]
+[node name="Utilities" type="MenuButton" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea" unique_id=519872298]
 layout_mode = 2
 text = "+"
-item_count = 2
+item_count = 5
 popup/item_0/text = "From local storage"
 popup/item_0/id = 0
 popup/item_1/text = "Take picture"
 popup/item_1/id = 1
+popup/item_2/id = 2
+popup/item_2/separator = true
+popup/item_3/text = "TOOL_SEARCH_TXT"
+popup/item_3/checkable = 1
+popup/item_3/checked = true
+popup/item_3/id = 3
+popup/item_4/text = "TOOL_SEARCH_IMG"
+popup/item_4/checkable = 1
+popup/item_4/checked = true
+popup/item_4/id = 4
 
-[node name="Files" type="ScrollContainer" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/FilesArea" unique_id=1118416399]
+[node name="Prompt" type="TextEdit" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea" unique_id=1688394500]
 layout_mode = 2
 size_flags_horizontal = 3
-horizontal_scroll_mode = 2
+placeholder_text = "PLACEHOLDER_PROMPT"
+scroll_fit_content_height = true
+
+[node name="SendBTN" type="Button" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea" unique_id=2061781085]
+layout_mode = 2
+text = "BTN_SEND"
+
+[node name="Files" type="ScrollContainer" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer" unique_id=1118416399]
+layout_mode = 2
+size_flags_horizontal = 3
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/FilesArea/Files" unique_id=1314671078]
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/Files" unique_id=1314671078]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="NotImplementedApp" type="Control" parent="GUI/Phone/Screen" unique_id=218435436]
 visible = false
-layout_mode = 1
-anchors_preset = 15
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -331,7 +336,8 @@ text = "NOT_IMPLEMENTED_APP_MSG"
 autowrap_mode = 3
 
 [node name="CloseBTN" type="Button" parent="GUI/Phone" unique_id=1870590266]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.4525862
 anchor_top = 0.921875
 anchor_right = 0.5387931

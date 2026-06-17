@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://5614f2th5nyr"]
+
+[ext_resource type="Script" uid="uid://b47nsqkdjiwgb" path="res://Scripts/Entities/SimpleFollowPlayer.gd" id="1_g0gp4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bfmbs"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g0gp4"]
+
+[node name="SimpleFollowPlayer" type="CharacterBody3D" unique_id=1852328600 node_paths=PackedStringArray("Agent")]
+script = ExtResource("1_g0gp4")
+Agent = NodePath("NavigationAgent3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1428010249]
+mesh = SubResource("CapsuleMesh_bfmbs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1281336709]
+shape = SubResource("CapsuleShape3D_g0gp4")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1002358131]
+path_max_distance = 100.01

@@ -58,3 +58,5 @@ Este juego sigue en desarrollo. Ya que la mayoría de niveles no tienen ninguna 
 Asegúrate de que tu nombre de usuario y contraseña en el modo multijugador sean correctos y que nadie esté conectado con tu mismo usuario. El juego podría crashear si hay algún error en el modo multijugador.",,,
 BTN_SAVE_CONFIG,Save,Guardar,,,
 LBL_SHADOW_DISTANCE,Shadow view distance,Distancia de visión de las sombras,,,
+PLACEHOLDER_PROMPT,Write your prompt here,Escribe tu petición aquí,,,
+BTN_SEND,Send,Enviar,,,

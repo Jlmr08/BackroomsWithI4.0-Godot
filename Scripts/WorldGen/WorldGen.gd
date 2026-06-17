@@ -1,5 +1,12 @@
 class_name WorldGen extends Node3D
 
+enum WorldGenStatus
+{
+	STANDBY = 0,
+	CREATING_TEXTURES = 1,
+	GENERATING_CHUNKS = 2
+}
+
 var MULTIPLAYER_PLAYER_SKIN: PackedScene = load("res://Prefabs/MultiplayerSkin.tscn")
 
 @export_category("Chunk options")

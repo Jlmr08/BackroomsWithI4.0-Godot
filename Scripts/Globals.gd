@@ -89,10 +89,21 @@ static func CheckInstance() -> void:
 	
 	LoadConfig()
 
-static func GetAllChildren(Obj: Node) -> Array[Node]:
+static func GetAllChildren(Obj: Node, FilterGroups: Array[StringName] = [], FilterTypes: Array[int] = []) -> Array[Node]:
 	var children: Array[Node] = []
 	
 	for child in Obj.get_children():
+		var continuee = typeof(child) not in FilterTypes
+		
+		if (!continuee):
+			for group in FilterGroups:
+				if (group in child.get_groups()):
+					continuee = true
+					break
+		
+		if (continuee):
+			continue
+		
 		children.append(child)
 		children.append_array(GetAllChildren(child))
 	
