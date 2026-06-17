@@ -5,3 +5,4 @@ __pycache__/
 .~lock.*
 .vscode/
 export_presets.cfg
+Locales/*.translation
