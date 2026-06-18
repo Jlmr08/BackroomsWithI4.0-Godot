@@ -57,8 +57,13 @@ Apps = [NodePath("../../GUI/Phone/Screen/I4_0 App")]
 NotCreatedApp = NodePath("../../GUI/Phone/Screen/NotImplementedApp")
 GUI = NodePath("../../GUI")
 
-[node name="I4_0" type="Node" parent="Scripts/Phone" unique_id=2070561293]
+[node name="I4_0" type="Node" parent="Scripts/Phone" unique_id=2070561293 node_paths=PackedStringArray("Prompt_Text", "Prompt_UtilitiesBtn", "Prompt_FilesContainer", "Prompt_SendMsg", "MessagesContainer")]
 script = ExtResource("4_javds")
+Prompt_Text = NodePath("../../../GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea/Prompt")
+Prompt_UtilitiesBtn = NodePath("../../../GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea/Utilities")
+Prompt_FilesContainer = NodePath("../../../GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/Files/HBoxContainer")
+Prompt_SendMsg = NodePath("../../../GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea/SendBTN")
+MessagesContainer = NodePath("../../../GUI/Phone/Screen/I4_0 App/VBoxContainer/Message area/VBoxContainer")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1256130155]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -0.25)
@@ -311,6 +316,7 @@ size_flags_vertical = 3
 
 [node name="Utilities" type="MenuButton" parent="GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea" unique_id=519872298]
 layout_mode = 2
+tooltip_text = "TT_BTN_I4.0_UTILITIES"
 text = "+"
 item_count = 6
 popup/item_0/text = "BTN_ATTACH_FLS"

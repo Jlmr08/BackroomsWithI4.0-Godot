@@ -65,3 +65,8 @@ BTN_TAKE_PICTURE,File: Take picture,Archivo: Tomar fotografía,,,
 BTN_DEL_CONV,Conversation: Delete,Conversación: Eliminar,,,
 TOOL_SEARCH_TXT,Tool: Internet: Text search,Herramienta: Internet: Búsqueda de texto,,,
 TOOL_SEARCH_IMG, Tool: Internet: Image search,Herramienta: Internet: Búsqueda de imagen,,,
+TT_BTN_I4.0_UTILITIES,"Utilities
+
+(Internet search tools allows I4.0 to search over the Backrooms wikis and extract the text/images)","Utilidades
+
+(Herramientas de búsqueda en internet le permiten a I4.0 buscar y extraer texto/imágenes en las wikis de los Backrooms)",,,

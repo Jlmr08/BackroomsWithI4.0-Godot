@@ -14,7 +14,7 @@ enum PromptUtility
 @export var Prompt_UtilitiesBtn: MenuButton = null
 @export var Prompt_Utilities: Dictionary[int, PromptUtility] = {}
 @export var Prompt_FilesContainer: Container = null
-@export var Prompt_SendMsg: Button = null
+@export var Prompt_SendMsg: TextureButton = null
 var CurrentText: String = ""
 var CurrentFiles: Array[PackedByteArray] = []
 
