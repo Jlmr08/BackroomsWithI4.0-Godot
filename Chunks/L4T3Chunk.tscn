@@ -72,7 +72,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 light_energy = 2.0
 light_indirect_energy = 2.0
 light_volumetric_fog_energy = 2.0
-distance_fade_enabled = true
 omni_range = 8.0
 
 [node name="Light2" type="Node3D" parent="Lights" unique_id=219580358 node_paths=PackedStringArray("ObjectsToActivate")]
@@ -92,7 +91,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 light_energy = 2.0
 light_indirect_energy = 2.0
 light_volumetric_fog_energy = 2.0
-distance_fade_enabled = true
 omni_range = 8.0
 
 [node name="Light3" type="Node3D" parent="Lights" unique_id=1747955814 node_paths=PackedStringArray("ObjectsToActivate")]
@@ -112,7 +110,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 light_energy = 2.0
 light_indirect_energy = 2.0
 light_volumetric_fog_energy = 2.0
-distance_fade_enabled = true
 omni_range = 8.0
 
 [node name="Light4" type="Node3D" parent="Lights" unique_id=1096480859 node_paths=PackedStringArray("ObjectsToActivate")]
@@ -132,7 +129,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 light_energy = 2.0
 light_indirect_energy = 2.0
 light_volumetric_fog_energy = 2.0
-distance_fade_enabled = true
 omni_range = 8.0
 
 [node name="Cubicle 1" parent="." unique_id=2027640324 instance=ExtResource("7_osi8p")]

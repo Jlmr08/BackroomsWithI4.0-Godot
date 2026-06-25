@@ -18,6 +18,7 @@ func SetSeed(Seed: int) -> void:
 	RNG.seed = Seed
 
 func Init() -> void:
+	# Execute chunk scripts/plugins
 	for script in ChunkScripts:
 		if (script.process_mode == Node.PROCESS_MODE_DISABLED):
 			continue
@@ -31,25 +32,16 @@ func Init() -> void:
 		if ("Init" in script):
 			script.Init()
 	
-	var lightFadeScale = 1
+	# Set lighting fade
+	var lightFadeScale = Globals.Instance.ViewDistance
 	
 	if (BASE_WORLD_GENERATOR != null):
 		lightFadeScale = (BASE_WORLD_GENERATOR.ChunkSize.x + BASE_WORLD_GENERATOR.ChunkSize.y + BASE_WORLD_GENERATOR.ChunkSize.z) / 3.0
 	
-	NavRegion = NavigationRegion3D.new()
-	NavRegion.navigation_mesh = NavigationMesh.new()
-	add_child(NavRegion)
-	
+	# Apply changes to children
 	for child in Globals.GetAllChildren(self):
 		if (child is Light3D):
 			child.distance_fade_enabled = true
-			child.distance_fade_begin = clampf(Globals.Instance.ViewDistance * lightFadeScale - lightFadeScale, 5, 200)
+			child.distance_fade_begin = clampf(Globals.Instance.ViewDistance * lightFadeScale - lightFadeScale, 5, 75)
 			child.distance_fade_length = lightFadeScale
-			child.distance_fade_shadow = Globals.Instance.ShadowViewDistance
-		elif (child is MeshInstance3D):
-			NavRegion.navigation_mesh.create_from_mesh(child.mesh)
-	
-	BuildChunkNavigationMeshes()
-
-func BuildChunkNavigationMeshes() -> void:
-	NavRegion.bake_navigation_mesh(true)
+			child.distance_fade_shadow = clampf(Globals.Instance.ShadowViewDistance, 0, 75)

@@ -638,7 +638,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 10.0
-max_value = 200.0
+max_value = 75.0
 value = 30.0
 rounded = true
 
@@ -672,7 +672,7 @@ layout_mode = 2
 [node name="HSlider" type="HSlider" parent="PanelContainer/Options/TabContainer/TAB_GRAPHICS/Shadow distance/Slider" unique_id=1635368657]
 layout_mode = 2
 size_flags_horizontal = 3
-max_value = 200.0
+max_value = 75.0
 value = 30.0
 rounded = true
 
@@ -944,6 +944,8 @@ text = "[color=#c8a832][b]3D models[/b][/color]
 - GIMP (Texture creation)
 - [url=https://github.com/V-Sekai/godot-vrm]Godot VRM (Godot Addon)[/url]
 - [url=https://github.com/JekSun97/gdTree3D]Tree3D (Godot Addon)[/url]
+- [url=https://github.com/cruglet/gdss]GDSS (Godot Addon)[/url]
+
 "
 fit_content = true
 

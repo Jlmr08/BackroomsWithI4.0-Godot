@@ -11,11 +11,15 @@ config_version=5
 [application]
 
 config/name="BackroomsWithI4.0"
-config/version="0.1.0"
+config/version="0.2.0"
 run/main_scene="uid://upk3pgwp2pnb"
-config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 boot_splash/show_image=false
 config/icon="uid://cyemyoma11115"
+
+[autoload]
+
+GdssRuntime="*uid://yu6lhnx763yp"
 
 [dotnet]
 
@@ -23,7 +27,13 @@ project/assembly_name="BackroomsWithI4.0"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/vrm/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/gdss/plugin.cfg", "res://addons/vrm/plugin.cfg")
+
+[gdss]
+
+internal/initialized=true
+editor/use_minimap=true
+editor/show_outline=true
 
 [global_group]
 

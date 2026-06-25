@@ -93,7 +93,7 @@ static func GetAllChildren(Obj: Node, FilterGroups: Array[StringName] = [], Filt
 	var children: Array[Node] = []
 	
 	for child in Obj.get_children():
-		var continuee = typeof(child) not in FilterTypes
+		var continuee = typeof(child) in FilterTypes
 		
 		if (!continuee):
 			for group in FilterGroups:
