@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://a
 internal/initialized=true
 editor/use_minimap=true
 editor/show_outline=true
+storage/save_path="res://Themes/theme.tgdss"
 
 [global_group]
 
