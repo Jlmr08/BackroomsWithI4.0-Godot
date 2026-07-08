@@ -1,7 +1,0 @@
-Button {
-	border: 1 1 1 1
-	bg_color: BLUE
-	:hover {
-		bg_color: BLACK
-	}
-}
