@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cw1xeylt2lkj" path="res://Prefabs/Lvl0Wall.tscn" id="2_wb14u"]
 [ext_resource type="Script" uid="uid://lxrqyunvc3fd" path="res://Scripts/WorldGen/WorldGen_RandomObject.gd" id="3_860ss"]
 [ext_resource type="Material" uid="uid://dyqykcnprjxfv" path="res://Textures/OfficeCeiling001/OfficeCeiling001_4K-JPG-ALT1.tres" id="5_ifqt8"]
+[ext_resource type="Material" uid="uid://bnk5g2awrc44" path="res://Textures/Level 0 Wall/Level 0 Wall.tres" id="6_b1j1q"]
+[ext_resource type="ArrayMesh" uid="uid://do11nafhcctkg" path="res://Meshes/OptimizedPillar.obj" id="7_ksysk"]
+[ext_resource type="ArrayMesh" uid="uid://dsq3hstcbl4df" path="res://Meshes/OptimizedSmallPillar.obj" id="8_ksysk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ywtkj"]
 size = Vector2(10, 10)
@@ -26,33 +29,39 @@ orientation = 1
 [sub_resource type="BoxShape3D" id="BoxShape3D_dpuev"]
 size = Vector3(10, 0, 10)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7a0nq"]
+size = Vector3(2, 5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j2h4j"]
+size = Vector3(0.2, 5, 0.2)
+
 [node name="L0T1Chunk" type="Node3D" unique_id=1126622542 node_paths=PackedStringArray("ChunkScripts")]
 script = ExtResource("1_nprm1")
-ChunkScripts = [NodePath("FrontWall"), NodePath("BackWall"), NodePath("LeftWall"), NodePath("RightWall")]
+ChunkScripts = [NodePath("FrontWall"), NodePath("BackWall"), NodePath("LeftWall"), NodePath("RightWall"), NodePath("OptimizedPillar"), NodePath("OptimizedSmallPillar")]
 
 [node name="FrontWall" parent="." unique_id=2083741031 node_paths=PackedStringArray("ObjectsToDeactivate") instance=ExtResource("2_wb14u")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 4.501)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 4.75)
 script = ExtResource("3_860ss")
 ObjectsToDeactivate = [NodePath(".")]
 Invert = true
 Probability = 0.1
 
 [node name="BackWall" parent="." unique_id=170359967 node_paths=PackedStringArray("ObjectsToDeactivate") instance=ExtResource("2_wb14u")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -4.501)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.001, 0, -4.752)
 script = ExtResource("3_860ss")
 ObjectsToDeactivate = [NodePath(".")]
 Invert = true
 Probability = 0.1
 
 [node name="LeftWall" parent="." unique_id=402103639 node_paths=PackedStringArray("ObjectsToDeactivate") instance=ExtResource("2_wb14u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.501, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, 0)
 script = ExtResource("3_860ss")
 ObjectsToDeactivate = [NodePath(".")]
 Invert = true
 Probability = 0.1
 
 [node name="RightWall" parent="." unique_id=2008620529 node_paths=PackedStringArray("ObjectsToDeactivate") instance=ExtResource("2_wb14u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.501, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75, 0, 0)
 script = ExtResource("3_860ss")
 ObjectsToDeactivate = [NodePath(".")]
 Invert = true
@@ -84,6 +93,7 @@ light_energy = 4.0
 light_indirect_energy = 4.0
 light_volumetric_fog_energy = 4.0
 light_size = 0.6
+shadow_enabled = true
 distance_fade_begin = 60.0
 omni_range = 12.0
 
@@ -97,3 +107,129 @@ debug_color = Color(0.9863238, 0, 0.32955393, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 shape = SubResource("BoxShape3D_dpuev")
 debug_color = Color(0.9863238, 0, 0.32955393, 0.41960785)
+
+[node name="OptimizedPillar" type="MeshInstance3D" parent="." unique_id=951629558 node_paths=PackedStringArray("ObjectsToActivate", "ObjectsToDeactivate")]
+material_override = ExtResource("6_b1j1q")
+mesh = ExtResource("7_ksysk")
+script = ExtResource("3_860ss")
+ObjectsToActivate = [NodePath("../Lights/Light")]
+ObjectsToDeactivate = [NodePath(".")]
+Invert = true
+Probability = 0.025
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OptimizedPillar" unique_id=637261942]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OptimizedPillar/StaticBody3D" unique_id=67592402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_7a0nq")
+
+[node name="OptimizedSmallPillar" type="MeshInstance3D" parent="." unique_id=1148623108 node_paths=PackedStringArray("ObjectsToActivate", "ObjectsToDeactivate")]
+material_override = ExtResource("6_b1j1q")
+mesh = ExtResource("8_ksysk")
+script = ExtResource("3_860ss")
+ObjectsToActivate = [NodePath("../OptimizedPillar")]
+ObjectsToDeactivate = [NodePath(".")]
+Invert = true
+Probability = 0.025
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OptimizedSmallPillar" unique_id=830383459]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1496205122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -1)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1054539854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.5, 0)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1559527437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.5, 1)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=463071930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.5, -2)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1004126582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.5, 2)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1097888582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 3)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=403083127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.5, 3)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=419626235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, 4)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=563400093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, 2)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1641839769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.5, 1)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1918395226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, 0)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1217161286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.5, -1)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1502548429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, -2)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=2086991613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, -3)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=560293515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.5, -4)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1371433732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -4)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=330649679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.5, -4)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=604903991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.5, -3)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=924744769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.5, -1)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=510646153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, 0)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1283368689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, -3)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=1618779477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, -2)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=54511285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, 2)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=719773448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, 4)
+shape = SubResource("BoxShape3D_j2h4j")
+
+[node name="CollisionShape3D25" type="CollisionShape3D" parent="OptimizedSmallPillar/StaticBody3D" unique_id=461932412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.5, 3)
+shape = SubResource("BoxShape3D_j2h4j")

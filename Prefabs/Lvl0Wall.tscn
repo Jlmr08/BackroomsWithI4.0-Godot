@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://mbet5atxqr3n" path="res://Meshes/OptimizedWall.obj" id="2_ui8jl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jwmqt"]
-size = Vector3(1, 5, 10)
+size = Vector3(0.5, 5, 10)
 
 [node name="Lvl0Wall" type="Node3D" unique_id=2083741031]
 
