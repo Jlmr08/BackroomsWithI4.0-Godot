@@ -2,14 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dk474sb6guehj" path="res://Scripts/I4.0/I4CharController.gd" id="1_tj7od"]
 [ext_resource type="PackedScene" uid="uid://c41y5lvp8o108" path="res://Meshes/I4.0/I4.0-1.vrm" id="1_tjtcn"]
-[ext_resource type="Animation" uid="uid://csfw1kccuauag" path="res://Animations/I4.0/Heart.tres" id="3_1gbs8"]
-[ext_resource type="Animation" uid="uid://cqbpl1q4lr4tr" path="res://Animations/I4.0/Thinking.tres" id="3_u6m2o"]
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_u6m2o"]
-_data = {
-&"Heart": ExtResource("3_1gbs8"),
-&"Thinking": ExtResource("3_u6m2o")
-}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tj7od"]
 radius = 0.35
@@ -26,19 +18,11 @@ EyesPivot = NodePath("../../Pivots/Eyes")
 Body = NodePath("../../Model/GeneralSkeleton/Body")
 Clothes = NodePath("../../Model/GeneralSkeleton/Clothes")
 
-[node name="Model" parent="." unique_id=81294745 instance=ExtResource("1_tjtcn")]
+[node name="Model" parent="." unique_id=1524928520 instance=ExtResource("1_tjtcn")]
 transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="Model" index="0" unique_id=19474684]
-bones/157/scale = Vector3(0.99999994, 1, 1)
-bones/158/scale = Vector3(1.0000001, 1, 0.9999997)
-
-[node name="Head" parent="Model/GeneralSkeleton" index="3" unique_id=1245896133]
+[node name="Head" parent="Model/GeneralSkeleton" parent_id_path=PackedInt32Array(1524928520, 1480615362) index="3" unique_id=2058901377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025288905, 21.088055, 0.27716386)
-
-[node name="AnimationPlayer" parent="Model" index="1" unique_id=310201498]
-libraries/Poses = SubResource("AnimationLibrary_u6m2o")
-autoplay = &"RESET"
 
 [node name="Pivots" type="Node3D" parent="." unique_id=1068910624]
 
@@ -46,7 +30,6 @@ autoplay = &"RESET"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.725, 0.2)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=652748374]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1021344849]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
