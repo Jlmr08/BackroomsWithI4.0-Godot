@@ -24,6 +24,14 @@ visible = false
 process_mode = 4
 visible = false
 
+[node name="OptimizedPillar" parent="L0T1Chunk" index="8" unique_id=951629558]
+process_mode = 4
+visible = false
+
+[node name="OptimizedSmallPillar" parent="L0T1Chunk" index="9" unique_id=1148623108]
+process_mode = 4
+visible = false
+
 [node name="L0T1Chunk2" parent="." unique_id=964390316 instance=ExtResource("1_d0ybh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 5)
 
@@ -35,6 +43,14 @@ visible = false
 process_mode = 4
 visible = false
 
+[node name="OptimizedPillar" parent="L0T1Chunk2" index="8" unique_id=951629558]
+process_mode = 4
+visible = false
+
+[node name="OptimizedSmallPillar" parent="L0T1Chunk2" index="9" unique_id=1148623108]
+process_mode = 4
+visible = false
+
 [node name="L0T1Chunk3" parent="." unique_id=1909521864 instance=ExtResource("1_d0ybh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
 
@@ -42,10 +58,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
 process_mode = 4
 visible = false
 
+[node name="OptimizedPillar" parent="L0T1Chunk3" index="8" unique_id=951629558]
+process_mode = 4
+visible = false
+
+[node name="OptimizedSmallPillar" parent="L0T1Chunk3" index="9" unique_id=1148623108]
+process_mode = 4
+visible = false
+
 [node name="L0T1Chunk7" parent="." unique_id=1394141090 instance=ExtResource("1_d0ybh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
 
 [node name="RightWall" parent="L0T1Chunk7" index="3" unique_id=2008620529]
+process_mode = 4
+visible = false
+
+[node name="OptimizedPillar" parent="L0T1Chunk7" index="8" unique_id=951629558]
+process_mode = 4
+visible = false
+
+[node name="OptimizedSmallPillar" parent="L0T1Chunk7" index="9" unique_id=1148623108]
 process_mode = 4
 visible = false
 
@@ -64,6 +96,14 @@ visible = false
 process_mode = 4
 visible = false
 
+[node name="OptimizedPillar" parent="L0T1Chunk4" index="8" unique_id=951629558]
+process_mode = 4
+visible = false
+
+[node name="OptimizedSmallPillar" parent="L0T1Chunk4" index="9" unique_id=1148623108]
+process_mode = 4
+visible = false
+
 [node name="L0T1Chunk5" parent="." unique_id=1346336013 instance=ExtResource("1_d0ybh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 15)
 
@@ -75,10 +115,26 @@ visible = false
 process_mode = 4
 visible = false
 
+[node name="OptimizedPillar" parent="L0T1Chunk5" index="8" unique_id=951629558]
+process_mode = 4
+visible = false
+
+[node name="OptimizedSmallPillar" parent="L0T1Chunk5" index="9" unique_id=1148623108]
+process_mode = 4
+visible = false
+
 [node name="L0T1Chunk6" parent="." unique_id=983376272 instance=ExtResource("1_d0ybh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 15)
 
 [node name="RightWall" parent="L0T1Chunk6" index="3" unique_id=2008620529]
+process_mode = 4
+visible = false
+
+[node name="OptimizedPillar" parent="L0T1Chunk6" index="8" unique_id=951629558]
+process_mode = 4
+visible = false
+
+[node name="OptimizedSmallPillar" parent="L0T1Chunk6" index="9" unique_id=1148623108]
 process_mode = 4
 visible = false
 

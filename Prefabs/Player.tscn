@@ -40,6 +40,7 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [node name="Player" type="CharacterBody3D" unique_id=632983521 node_paths=PackedStringArray("WaterGUI", "FoodGUI", "StaminaGUI", "Head") groups=["Player"]]
+floor_max_angle = 0.87266463
 script = ExtResource("1_x3d5u")
 WaterGUI = NodePath("GUI/Stats/Water/ProgressBar")
 FoodGUI = NodePath("GUI/Stats/Food/ProgressBar")

@@ -22,18 +22,18 @@ var CurrentSpeed: float = 1
 var CurrentDirection: Vector3 = Vector3.ZERO
 
 @export_category("Health")
-var Health: float = 100
+static var Health: float = 100
 
 @export_category("Water")
-var Water: float = 100
+static var Water: float = 100
 @export var WaterDecreaseMultiplier: float = 0.25
 
 @export_category("Food")
-var Food: float = 100
+static var Food: float = 100
 @export var FoodDecreaseMultiplier: float = 0.15
 
 @export_category("Stamina")
-var Stamina: float = 100
+static var Stamina: float = 100
 @export var StaminaRecover: float = 2.5
 @export var TiredStaminaRecover: float = 8
 @export var WalkStaminaLoss: float = 0.5
@@ -59,8 +59,11 @@ var MultiplayerSounds: Array[Globals.SoundID] = []
 @export var FoodGUI: ProgressBar = null
 @export var StaminaGUI: ProgressBar = null
 
-@export_category("Other")
+@export_category("Head")
 @export var Head: Node3D = null
+var MinMaxHeadRotation: Vector2 = Vector2(-85, 80)
+
+@export_category("Other")
 var MouseCaptured: bool = true
 var Spawned: bool = false
 var Running: bool = false
@@ -181,6 +184,7 @@ func _input(Event: InputEvent) -> void:
 	if (Event is InputEventMouseMotion && MouseCaptured):
 		rotate_y(-Event.relative.x * (Globals.Instance.Sensibility * 0.01))
 		Head.rotate_x(-Event.relative.y * (Globals.Instance.Sensibility * 0.01))
+		Head.rotation_degrees.x = clampf(Head.rotation_degrees.x, MinMaxHeadRotation.x, MinMaxHeadRotation.y)
 
 func _process(Delta: float) -> void:
 	WaterGUI.value = Water

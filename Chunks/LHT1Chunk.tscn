@@ -13,6 +13,9 @@ size = Vector3(55, 0, 12.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_31lem"]
 size = Vector3(55, 0.25, 6.675)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pi5fb"]
+size = Vector3(55, 0.25, 0.5)
+
 [node name="LHT1Chunk" type="Node3D" unique_id=292406491 node_paths=PackedStringArray("ChunkScripts")]
 script = ExtResource("1_31lem")
 ChunkScripts = [NodePath("Doors/Door"), NodePath("Doors/Door2"), NodePath("Doors/Door3"), NodePath("Doors/Door4")]
@@ -147,4 +150,14 @@ debug_color = Color(0, 0, 1, 0.41960785)
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=373542520]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.225, -9.588)
 shape = SubResource("BoxShape3D_31lem")
+debug_color = Color(0, 0, 1, 0.41960785)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1420875765]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, -0.335, -6.1)
+shape = SubResource("BoxShape3D_pi5fb")
+debug_color = Color(0, 0, 1, 0.41960785)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=1423972710]
+transform = Transform3D(-1, -4.371139e-08, -7.5710346e-08, 0, 0.8660254, -0.5, 8.742278e-08, -0.5, -0.8660254, 0, -0.335, 6.1)
+shape = SubResource("BoxShape3D_pi5fb")
 debug_color = Color(0, 0, 1, 0.41960785)
