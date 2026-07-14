@@ -9,8 +9,23 @@ static var LevelToLoad: String = ""
 
 var ViewDistance: int = 15
 var ShadowViewDistance: int = 10
+
+# ====================
+#        SOUND
+# ====================
+# TODO: Add sound settings
+
+# ====================
+#       CONTROLS
+# ====================
 var Sensibility: float = 1.5
+
+# ====================
+#         GAME
+# ====================
 var GenerationTime: float = 2
+var CameraQualityLevel: int = 1
+var CameraSaveCompressionLevel: int = 1
 
 # ====================
 #     MULTIPLAYER
@@ -75,11 +90,15 @@ static func GetGameConfigDirPath() -> String:
 	if (!DirAccess.dir_exists_absolute(d)):
 		DirAccess.make_dir_recursive_absolute(d)
 	
+	if (!DirAccess.dir_exists_absolute(d + "/Screenshots")):
+		DirAccess.make_dir_recursive_absolute(d + "/Screenshots")
+	
 	return d
 
 static func ParsePath(Path: String) -> String:
 	var path = Path.strip_edges()
 	path = path.replace("[$GAME_CONFIG_DIR]", GetGameConfigDirPath())
+	path = path.replace("[$GAME_SCREENSHOTS_DIR]", GetGameConfigDirPath() + "/Screenshots")
 	
 	return path
 

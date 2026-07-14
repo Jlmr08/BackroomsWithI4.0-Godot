@@ -52,16 +52,26 @@ Head = NodePath("Camera3D")
 [node name="I4Conn" type="Node" parent="Scripts" unique_id=2102811963]
 script = ExtResource("2_shmu5")
 
-[node name="Phone" type="Node" parent="Scripts" unique_id=622918129 node_paths=PackedStringArray("Apps", "NotCreatedApp", "GUI")]
+[node name="Phone" type="Node" parent="Scripts" unique_id=622918129 node_paths=PackedStringArray("PlayerScript", "GlobalGUI", "Apps", "NotCreatedApp", "CameraGUI")]
 script = ExtResource("3_vxq8l")
+PlayerScript = NodePath("../..")
+GlobalGUI = NodePath("../../GUI")
 Apps = [NodePath("../../GUI/Phone/Screen/I4_0 App")]
 NotCreatedApp = NodePath("../../GUI/Phone/Screen/NotImplementedApp")
-GUI = NodePath("../../GUI")
+CameraGUI = NodePath("../../CameraGUI")
 
-[node name="I4_0" type="Node" parent="Scripts/Phone" unique_id=2070561293 node_paths=PackedStringArray("Prompt_Text", "Prompt_UtilitiesBtn", "Prompt_FilesContainer", "Prompt_SendMsg", "MessagesContainer")]
+[node name="I4_0" type="Node" parent="Scripts/Phone" unique_id=2070561293 node_paths=PackedStringArray("PhoneScript", "Prompt_Text", "Prompt_UtilitiesBtn", "Prompt_FilesContainer", "Prompt_SendMsg", "MessagesContainer")]
 script = ExtResource("4_javds")
+PhoneScript = NodePath("..")
 Prompt_Text = NodePath("../../../GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea/Prompt")
 Prompt_UtilitiesBtn = NodePath("../../../GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea/Utilities")
+Prompt_Utilities = Dictionary[int, int]({
+0: 0,
+1: 1,
+2: 2,
+3: 3,
+4: 4
+})
 Prompt_FilesContainer = NodePath("../../../GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/Files/HBoxContainer")
 Prompt_SendMsg = NodePath("../../../GUI/Phone/Screen/I4_0 App/VBoxContainer/Prompt area/VBoxContainer/TextArea/SendBTN")
 MessagesContainer = NodePath("../../../GUI/Phone/Screen/I4_0 App/VBoxContainer/Message area/VBoxContainer")
@@ -399,7 +409,42 @@ theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_lhekp")
 metadata/_edit_use_anchors_ = true
 
+[node name="CameraGUI" type="Control" parent="." unique_id=235178087]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="CameraGUI" unique_id=526703095]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8871528
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+metadata/_edit_use_anchors_ = true
+
+[node name="TakePictureBTN" type="Button" parent="CameraGUI/ColorRect" unique_id=1780452322]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053846154
+anchor_top = 0.47608024
+anchor_right = 0.9461538
+anchor_bottom = 0.52391976
+grow_horizontal = 2
+grow_vertical = 2
+text = "TAKE PICTURE"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="GUI/Phone/Screen/Desktop/Apps/I4_0" to="Scripts/Phone" method="OpenApp" binds= [&"I4_0 App"]]
-[connection signal="pressed" from="GUI/Phone/Screen/Desktop/Apps/Camera" to="Scripts/Phone" method="OpenApp" binds= [&"Camera App"]]
+[connection signal="pressed" from="GUI/Phone/Screen/Desktop/Apps/Camera" to="Scripts/Phone" method="CameraWaitForPicture" binds= [true]]
 [connection signal="pressed" from="GUI/Phone/Screen/Desktop/Apps/Notifications" to="Scripts/Phone" method="OpenApp" binds= [&"Notifications App"]]
 [connection signal="pressed" from="GUI/Phone/CloseBTN" to="Scripts/Phone" method="CloseCurrentApp"]
+[connection signal="pressed" from="CameraGUI/ColorRect/TakePictureBTN" to="Scripts/Phone" method="__camera_take_picture__"]

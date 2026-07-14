@@ -5,6 +5,7 @@ extends Node
 	"ShadowViewDistance": null,
 	"Sensibility": null,
 	"GenerationTime": null,
+	"PhoneQualityLevel": null,
 	"Multiplayer_Host": null,
 	"Multiplayer_Port": null,
 	"Multiplayer_UpdateTime": null,
@@ -21,7 +22,9 @@ func _ready() -> void:
 		if (elementNode == null || paramName not in Globals.Instance):
 			continue
 		
-		if ("value" in elementNode):
+		if ("item_selected" in elementNode):
+			elementNode.select(Globals.Instance.get(paramName))
+		elif ("value" in elementNode):
 			elementNode.set("value", Globals.Instance.get(paramName))
 		elif ("text" in elementNode):
 			elementNode.set("text", Globals.Instance.get(paramName))
@@ -36,7 +39,9 @@ func _process(_Delta: float) -> void:
 		if (elementNode == null || paramName not in Globals.Instance):
 			continue
 		
-		if ("value" in elementNode):
+		if ("item_selected" in elementNode):
+			paramValue = elementNode.selected
+		elif ("value" in elementNode):
 			paramValue = elementNode.value
 		elif ("text" in elementNode):
 			paramValue = elementNode.text

@@ -334,6 +334,8 @@ size_flags_vertical = 3
 [node name="ConfigManager" type="Node" parent="Scripts" unique_id=749585586 node_paths=PackedStringArray("GUI_Elements")]
 script = ExtResource("1_853f1")
 GUI_Elements = {
+"CameraQualityLevel": NodePath("../../PanelContainer/Options/TabContainer/TAB_GAME/Camera quality level/OptionButton"),
+"CameraSaveCompressionLevel": NodePath("../../PanelContainer/Options/TabContainer/TAB_GAME/Camera compression level/OptionButton"),
 "GenerationTime": NodePath("../../PanelContainer/Options/TabContainer/TAB_GAME/Map update time/Slider/HSlider"),
 "Multiplayer_Host": NodePath("../../PanelContainer/Options/TabContainer/TAB_MULTIPLAYER/Server/Slider/Host"),
 "Multiplayer_Port": NodePath("../../PanelContainer/Options/TabContainer/TAB_MULTIPLAYER/Server/Slider/Port"),
@@ -772,6 +774,67 @@ theme_override_styles/normal = SubResource("StyleBoxLine_8um5k")
 text = "99999"
 script = ExtResource("3_8saeu")
 Sl = NodePath("../HSlider")
+
+[node name="Camera quality level" type="VBoxContainer" parent="PanelContainer/Options/TabContainer/TAB_GAME" unique_id=53233982]
+layout_mode = 2
+tooltip_text = "Resolution of the mobile phone camera.
+
+Lower values will take less storage and tokens when sending to I4.0. Values too low might confuse I4.0.
+All values except \"lossless\" will resize the image to a 1:1 aspect ratio.
+
+Performance impact: None"
+
+[node name="Label" type="Label" parent="PanelContainer/Options/TabContainer/TAB_GAME/Camera quality level" unique_id=1571080673]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_df05h")
+theme_override_styles/normal = SubResource("StyleBoxLine_loo7a")
+text = "LBL_CAMQUALITY"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/Options/TabContainer/TAB_GAME/Camera quality level" unique_id=320264636]
+layout_mode = 2
+item_count = 7
+popup/item_0/text = "CAMQUALITY_LOSSLESS"
+popup/item_0/id = 0
+popup/item_1/text = "CAMQUALITY_VERYHIGH"
+popup/item_1/id = 1
+popup/item_2/text = "CAMQUALITY_HIGH"
+popup/item_2/id = 2
+popup/item_3/text = "CAMQUALITY_MEDIUM"
+popup/item_3/id = 3
+popup/item_4/text = "CAMQUALITY_LOW"
+popup/item_4/id = 4
+popup/item_5/text = "CAMQUALITY_VERYLOW"
+popup/item_5/id = 5
+popup/item_6/text = "CAMQUALITY_EXTREMELYLOW"
+popup/item_6/id = 6
+
+[node name="Camera compression level" type="VBoxContainer" parent="PanelContainer/Options/TabContainer/TAB_GAME" unique_id=1643186152]
+layout_mode = 2
+tooltip_text = "File compression of the mobile phone camera.
+
+Higher values will take less storage, but might look bad.
+
+Performance impact: None"
+
+[node name="Label" type="Label" parent="PanelContainer/Options/TabContainer/TAB_GAME/Camera compression level" unique_id=2140820362]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_df05h")
+theme_override_styles/normal = SubResource("StyleBoxLine_loo7a")
+text = "LBL_CAMCOMPRESSION"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/Options/TabContainer/TAB_GAME/Camera compression level" unique_id=754846631]
+layout_mode = 2
+item_count = 5
+popup/item_0/text = "CAMCOMPRESSION_NONE"
+popup/item_0/id = 0
+popup/item_1/text = "CAMCOMPRESSION_LOW"
+popup/item_1/id = 1
+popup/item_2/text = "CAMCOMPRESSION_MEDIUM"
+popup/item_2/id = 2
+popup/item_3/text = "CAMCOMPRESSION_HIGH"
+popup/item_3/id = 3
+popup/item_4/text = "CAMCOMPRESSION_VERYHIGH"
+popup/item_4/id = 4
 
 [node name="TAB_MULTIPLAYER" type="VBoxContainer" parent="PanelContainer/Options/TabContainer" unique_id=1411616556]
 visible = false

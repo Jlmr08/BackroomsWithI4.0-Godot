@@ -23,6 +23,20 @@ TT_LBL_MAP_UPDATE,"This affects how much the map will update.
 Smaller values will require more CPU, but might reduce frame drops.
 
 Performance impact: Low",-,,,
+LBL_CAMQUALITY,Camera quality,Calidad de la cámara,,,
+CAMQUALITY_LOSSLESS,Lossless,Sin pérdida,,,
+CAMQUALITY_VERYHIGH,Very high (1024),Muy alta (1024),,,
+CAMQUALITY_HIGH,High (768),Alta (768),,,
+CAMQUALITY_MEDIUM,Medium (512),Media (512),,,
+CAMQUALITY_LOW,Low (256),Baja (256),,,
+CAMQUALITY_VERYLOW,Very low (128),Muy baja (128),,,
+CAMQUALITY_EXTREMELYLOW,Extremely low (64),Extramadamente baja (64),,,
+LBL_CAMCOMPRESSION,Camera compression,Compresión de la cámara,,,
+CAMCOMPRESSION_NONE,None (lossless),Ninguna (sin pérdida),,,
+CAMCOMPRESSION_LOW,Low (20%),Baja (20%),,,
+CAMCOMPRESSION_MEDIUM,Medium (50%),Media (50%),,,
+CAMCOMPRESSION_HIGH,High (80%),Alta (80%),,,
+CAMCOMPRESSION_VERYHIGH,Very high (100%),Muy alta (100%),,,
 TAB_MULTIPLAYER,Multiplayer,Multijugador,,,
 LBL_MULTIPLAYER_SERVER,Multiplayer server,Servidor del multijugador,,,
 TT_LBL_MULTIPLAYER_SERVER,"Server to connect to in the multiplayer.
@@ -70,3 +84,4 @@ TT_BTN_I4.0_UTILITIES,"Utilities
 (Internet search tools allows I4.0 to search over the Backrooms wikis and extract the text/images)","Utilidades
 
 (Herramientas de búsqueda en internet le permiten a I4.0 buscar y extraer texto/imágenes en las wikis de los Backrooms)",,,
+MSG_ATTACH_FILES_ERROR,"Could not attach files because of an internal error.","No se han podido adjuntar los archivos debido a un error interno.",,,
