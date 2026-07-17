@@ -13,7 +13,13 @@ var ShadowViewDistance: int = 10
 # ====================
 #        SOUND
 # ====================
-# TODO: Add sound settings
+var Sound_Master: float = 0
+var Sound_Entity: float = 0
+var Sound_Music: float = 0
+var Sound_SFX: float = 0
+var Sound_Player_Voice: float = 0
+var Sound_Player_SFX: float = 0
+var Sound_Players: Dictionary[String, Dictionary] = {}
 
 # ====================
 #       CONTROLS

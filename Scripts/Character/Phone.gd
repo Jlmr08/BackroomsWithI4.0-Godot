@@ -84,7 +84,7 @@ func CameraWaitForPicture(SavePicture: bool = false) -> Array:
 	if (GlobalGUI.visible || !CameraGUI.visible):
 		CameraGetReadyForPicture()
 	
-	var picture = []
+	var picture: Array[Image] = []
 	var lmbd = func(p):
 		picture.append(p)
 	
